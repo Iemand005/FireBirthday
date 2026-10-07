@@ -39,23 +39,36 @@
 	</style>
 </head>
 <body>
-	<h1>Happy birthday Nick!</h1>
+	<h1>Happy birthday Nicholas!</h1>
 	<button class="confetti-button" onclick="fireConfetti()">Surprise!</button>
 	
 	<script>
 		function fireConfetti() {
 			const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ff8000', '#ff0080'];
 			
-			// Single optimized burst
+			// Larger burst from top center
 			confetti({
-				particleCount: 30,
-				startVelocity: 25,
-				spread: 80,
-				origin: { x: 0.5, y: 0.8 },
+				particleCount: 60,
+				startVelocity: 30,
+				spread: 70,
+				origin: { x: 0.5, y: 0 },
 				colors: colors,
 				shapes: ['circle'],
-				scalar: 1.0
+				scalar: 1.2
 			});
+			
+			// Additional burst from bottom
+			setTimeout(() => {
+				confetti({
+					particleCount: 40,
+					startVelocity: 25,
+					spread: 90,
+					origin: { x: 0.5, y: 1 },
+					colors: colors,
+					shapes: ['circle'],
+					scalar: 1.0
+				});
+			}, 200);
 		}
 		
 		// Auto-trigger once on page load
