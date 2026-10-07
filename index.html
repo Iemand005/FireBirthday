@@ -5,75 +5,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>HAPPY BIRTHDAY!</title>
 	<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-	<style>
-		body {
-			font-family: Arial, sans-serif;
-			margin: 0;
-			padding: 0;
-			min-height: 100vh;
-			position: relative;
-			overflow: hidden;
-		}
-		
-		iframe {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			border: none;
-			z-index: -1;
-		}
-		
-		header {
-			position: relative;
-			z-index: 1;
-			background: rgba(0, 0, 0, 0.5);
-			padding: 20px;
-			text-align: center;
-			width: 100%;
-		}
-		
-		main {
-			position: relative;
-			z-index: 1;
-		}
-		
-		footer {
-			position: fixed;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			z-index: 1;
-			background: rgba(0, 0, 0, 0.5);
-			padding: 15px;
-			text-align: center;
-			color: white;
-			font-size: 1.1rem;
-		}
-		
-		h1 {
-			font-size: 3rem;
-			color: white;
-			margin: 0;
-			padding: 10px 0;
-		}
-		
-		.confetti-button {
-			padding: 12px 24px;
-			font-size: 1.2rem;
-			background: #ff6b6b;
-			color: white;
-			border: none;
-			border-radius: 8px;
-			cursor: pointer;
-			transition: background 0.3s;
-			margin-top: 10px;
-		}
-		.confetti-button:hover {
-			background: #ff5252;
-		}
-	</style>
+	<script src="index.js" defer></script>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
 	<iframe src="https://Iemand005.github.io/FenixWeb/Cake" frameborder="0"></iframe>
@@ -88,49 +21,5 @@
 	<footer>
 		Thanks! Wishing you lots of boymilk!
 	</footer>
-	
-	<script>
-		let confettiInterval;
-		const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ff8000', '#ff0080'];
-		
-		function startConfetti() {
-			if (confettiInterval) clearInterval(confettiInterval);
-			fireSingleBurst();
-			confettiInterval = setInterval(fireSingleBurst, 2000);
-		}
-		
-		function fireSingleBurst() {
-			const edgeOrigins = [
-				{ x: 0, y: 0.5 },
-				{ x: 1, y: 0.5 },
-				{ x: 0.5, y: 0 },
-				{ x: 0.5, y: 1 }
-			];
-			const origin = edgeOrigins[Math.floor(Math.random() * edgeOrigins.length)];
-			
-			confetti({
-				particleCount: 30,
-				startVelocity: 40,
-				spread: 120,
-				origin: origin,
-				colors: colors,
-				shapes: ['circle'],
-				scalar: 1.2
-			});
-		}
-		
-		window.addEventListener('load', () => {
-			setTimeout(startConfetti, 1000);
-		});
-		
-		function toggleConfetti() {
-			if (confettiInterval) {
-				clearInterval(confettiInterval);
-				confettiInterval = null;
-			} else {
-				startConfetti();
-			}
-		}
-	</script>
 </body>
 </html>
