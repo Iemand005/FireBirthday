@@ -26,14 +26,32 @@
 			z-index: -1;
 		}
 		
-		/* Shaded container for text and button */
-		.header-container {
+		/* Semantic tags styling */
+		header {
 			position: relative;
 			z-index: 1;
 			background: rgba(0, 0, 0, 0.5);
 			padding: 20px;
 			text-align: center;
 			width: 100%;
+		}
+		
+		main {
+			position: relative;
+			z-index: 1;
+		}
+		
+		footer {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			z-index: 1;
+			background: rgba(0, 0, 0, 0.5);
+			padding: 15px;
+			text-align: center;
+			color: white;
+			font-size: 1.1rem;
 		}
 		
 		h1 {
@@ -57,33 +75,21 @@
 		.confetti-button:hover {
 			background: #ff5252;
 		}
-		
-		/* Footer with shaded background */
-		.footer-container {
-			position: fixed;
-			bottom: 0;
-			left: 0;
-			right: 0;
-			z-index: 1;
-			background: rgba(0, 0, 0, 0.5);
-			padding: 15px;
-			text-align: center;
-			color: white;
-			font-size: 1.1rem;
-		}
 	</style>
 </head>
 <body>
 	<iframe src="https://Iemand005.github.io/FenixWeb/Cake" frameborder="0"></iframe>
 	
-	<div class="header-container">
+	<header>
 		<h1>Happy birthday Nicholas!</h1>
 		<button class="confetti-button" onclick="toggleConfetti()">Surprise!</button>
-	</div>
+	</header>
 	
-	<div class="footer-container">
-		Thanks! Wishing you lots of oboymilk!
-	</div>
+	<main></main>
+	
+	<footer>
+		Thanks! Wishing you lots of boymilk!
+	</footer>
 	
 	<script>
 		let confettiInterval;
