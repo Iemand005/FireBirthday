@@ -64,33 +64,51 @@
 	
 	<div class="header-container">
 		<h1>Happy birthday Nicholas!</h1>
-		<button class="confetti-button" onclick="fireConfetti()">Surprise!</button>
+		<button class="confetti-button" onclick="toggleConfetti()">Surprise!</button>
 	</div>
 	
 	<script>
-		function fireConfetti() {
-			const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ff8000', '#ff0080'];
+		let confettiInterval;
+		const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ff8000', '#ff0080'];
+		
+		function startConfetti() {
+			// Stop any existing interval
+			if (confettiInterval) clearInterval(confettiInterval);
 			
-			// Fire 8 bursts from random positions
-			for (let i = 0; i < 8; i++) {
-				setTimeout(() => {
-					confetti({
-						particleCount: 25,
-						startVelocity: 25,
-						spread: 60,
-						origin: { x: Math.random(), y: Math.random() },
-						colors: colors,
-						shapes: ['circle'],
-						scalar: 1.0
-					});
-				}, i * 150);
-			}
+			// Fire initial burst
+			fireSingleBurst();
+			
+			// Then keep firing slowly every 2 seconds
+			confettiInterval = setInterval(fireSingleBurst, 2000);
 		}
 		
-		// Auto-trigger once on page load
+		function fireSingleBurst() {
+			confetti({
+				particleCount: 20,
+				startVelocity: 25,
+				spread: 60,
+				origin: { x: Math.random(), y: Math.random() },
+				colors: colors,
+				shapes: ['circle'],
+				scalar: 1.0
+			});
+		}
+		
+		// Auto-start on page load
 		window.addEventListener('load', () => {
-			setTimeout(fireConfetti, 1000);
+			setTimeout(startConfetti, 1000);
 		});
+		
+		// Button starts/stops confetti
+		function toggleConfetti() {
+			if (confettiInterval) {
+				clearInterval(confettiInterval);
+				confettiInterval = null;
+			} else {
+				startConfetti();
+			}
+		}
+	</script>
 	</script>
 </body>
 </html>
