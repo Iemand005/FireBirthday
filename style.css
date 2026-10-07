@@ -15,6 +15,7 @@ iframe {
 	height: 100%;
 	border: none;
 	z-index: -1;
+	pointer-events: auto;
 }
 
 header {
