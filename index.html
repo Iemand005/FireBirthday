@@ -15,7 +15,6 @@
 			overflow: hidden;
 		}
 		
-		/* Cake iframe as full background */
 		iframe {
 			position: absolute;
 			top: 0;
@@ -26,7 +25,6 @@
 			z-index: -1;
 		}
 		
-		/* Semantic tags styling */
 		header {
 			position: relative;
 			z-index: 1;
@@ -96,23 +94,17 @@
 		const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ff8000', '#ff0080'];
 		
 		function startConfetti() {
-			// Stop any existing interval
 			if (confettiInterval) clearInterval(confettiInterval);
-			
-			// Fire initial burst
 			fireSingleBurst();
-			
-			// Then keep firing slowly every 2 seconds
 			confettiInterval = setInterval(fireSingleBurst, 2000);
 		}
 		
 		function fireSingleBurst() {
-			// Random origin from screen edges for wider sweeps
 			const edgeOrigins = [
-				{ x: 0, y: 0.5 },    // left
-				{ x: 1, y: 0.5 },    // right
-				{ x: 0.5, y: 0 },    // top
-				{ x: 0.5, y: 1 }     // bottom
+				{ x: 0, y: 0.5 },
+				{ x: 1, y: 0.5 },
+				{ x: 0.5, y: 0 },
+				{ x: 0.5, y: 1 }
 			];
 			const origin = edgeOrigins[Math.floor(Math.random() * edgeOrigins.length)];
 			
@@ -127,12 +119,10 @@
 			});
 		}
 		
-		// Auto-start on page load
 		window.addEventListener('load', () => {
 			setTimeout(startConfetti, 1000);
 		});
 		
-		// Button starts/stops confetti
 		function toggleConfetti() {
 			if (confettiInterval) {
 				clearInterval(confettiInterval);
