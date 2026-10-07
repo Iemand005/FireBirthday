@@ -41,34 +41,27 @@
 <body>
 	<h1>Happy birthday Nicholas!</h1>
 	<button class="confetti-button" onclick="fireConfetti()">Surprise!</button>
+
+	<iframe src="https://Iemand005.github.io/FenixWeb/Cake" frameborder="0"></iframe>
 	
 	<script>
 		function fireConfetti() {
 			const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ff8000', '#ff0080'];
 			
-			// Larger burst from top center
-			confetti({
-				particleCount: 60,
-				startVelocity: 30,
-				spread: 70,
-				origin: { x: 0.5, y: 0 },
-				colors: colors,
-				shapes: ['circle'],
-				scalar: 1.2
-			});
-			
-			// Additional burst from bottom
-			setTimeout(() => {
-				confetti({
-					particleCount: 40,
-					startVelocity: 25,
-					spread: 90,
-					origin: { x: 0.5, y: 1 },
-					colors: colors,
-					shapes: ['circle'],
-					scalar: 1.0
-				});
-			}, 200);
+			// Fire 8 bursts from random positions
+			for (let i = 0; i < 8; i++) {
+				setTimeout(() => {
+					confetti({
+						particleCount: 25,
+						startVelocity: 25,
+						spread: 60,
+						origin: { x: Math.random(), y: Math.random() },
+						colors: colors,
+						shapes: ['circle'],
+						scalar: 1.0
+					});
+				}, i * 150);
+			}
 		}
 		
 		// Auto-trigger once on page load
