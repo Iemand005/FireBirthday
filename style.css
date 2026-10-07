@@ -6,6 +6,13 @@ body {
 	position: relative;
 	overflow: hidden;
 	cursor: pointer;
+	user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	touch-action: manipulation;
+	-webkit-touch-callout: none;
+	-webkit-tap-highlight-color: transparent;
 }
 
 html, body {

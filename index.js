@@ -63,6 +63,28 @@ window.addEventListener('load', () => {
 window.addEventListener('click', handleClickOrTap);
 window.addEventListener('touchstart', handleTouch);
 
+// Block right-click and context menu
+document.addEventListener('contextmenu', (e) => {
+	e.preventDefault();
+});
+
+// Block selection
+document.addEventListener('selectstart', (e) => {
+	e.preventDefault();
+});
+
+// Block pinch zoom on iOS
+document.addEventListener('touchmove', (e) => {
+	if (e.touches.length > 1) {
+		e.preventDefault();
+	}
+}, { passive: false });
+
+// Block drag/drop
+document.addEventListener('dragstart', (e) => {
+	e.preventDefault();
+});
+
 function toggleConfetti() {
 	if (confettiInterval) {
 		clearInterval(confettiInterval);
