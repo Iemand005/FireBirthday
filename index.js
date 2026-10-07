@@ -28,9 +28,40 @@ function fireSingleBurst() {
 	});
 }
 
+function fireConfettiAtPosition(x, y) {
+	const origin = { x: x, y: y };
+	
+	confetti({
+		particleCount: 50,
+		startVelocity: 40,
+		spread: 100,
+		origin: origin,
+		colors: colors,
+		shapes: ['circle'],
+		scalar: 1.2
+	});
+}
+
+function handleClickOrTap(event) {
+	const x = event.clientX / window.innerWidth;
+	const y = event.clientY / window.innerHeight;
+	fireConfettiAtPosition(x, y);
+}
+
+function handleTouch(event) {
+	event.preventDefault();
+	const touch = event.touches[0] || event.changedTouches[0];
+	const x = touch.clientX / window.innerWidth;
+	const y = touch.clientY / window.innerHeight;
+	fireConfettiAtPosition(x, y);
+}
+
 window.addEventListener('load', () => {
 	setTimeout(startConfetti, 1000);
 });
+
+window.addEventListener('click', handleClickOrTap);
+window.addEventListener('touchstart', handleTouch);
 
 function toggleConfetti() {
 	if (confettiInterval) {

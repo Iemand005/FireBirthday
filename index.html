@@ -21,7 +21,7 @@
 	
 	<header>
 		<h1>Happy birthday Nicholas!</h1>
-		<button class="confetti-button" onclick="toggleConfetti()">Surprise!</button>
+		<button class="confetti-button" onclick="event.stopPropagation(); toggleConfetti()">Surprise!</button>
 	</header>
 	
 	<main></main>
