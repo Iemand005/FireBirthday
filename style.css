@@ -7,6 +7,13 @@ body {
 	overflow: hidden;
 }
 
+html, body {
+	display: flex;
+    align-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
 iframe {
 	position: absolute;
 	top: 0;
@@ -24,7 +31,6 @@ header {
 	background: rgba(0, 0, 0, 0.5);
 	padding: 20px;
 	text-align: center;
-	width: 100%;
 }
 
 main {
